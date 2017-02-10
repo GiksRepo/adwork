@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd ">
+    
+    <context:annotation-config/>    
+	<bean name="applicationStartUp" class="com.adwork.survey.config.ApplicationStartUp" init-method="initIt" destroy-method="cleanUp"/>
+	<bean id="userAuthDaoImpl" class="com.adwork.survey.config.dao.UserAuthDaoImpl"/>
+	<bean id="authenticationService" class="com.adwork.survey.config.services.AuthenticationService"/>
+	<bean id="springSecurityFilterChain" class="org.springframework.web.filter.DelegatingFilterProxy"/>
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename">
+			<value>messages</value>
+		</property>
+	</bean>
+</beans>
