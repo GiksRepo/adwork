@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class WalletDao
 {
 
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN') AND hasRole('ROLE_USER')")
 	public void display()
 	{
 		System.out.println("got it!");

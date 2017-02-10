@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -38,12 +39,12 @@ public class AuthenticationService implements UserDetailsService
 			user = userAuthDao.getUserCredentials(username);
 			userRoles = userAuthDao.getUserRoles(user);
 			//String userAuthorities = null;
-			List<String> roleArr = new ArrayList<String>();
+			List<GrantedAuthority> roleArr = new ArrayList<GrantedAuthority>();
 			if(userRoles !=null && !userRoles.isEmpty())
 			{
 				
 				for(UserRoles userRoleTemp:userRoles)
-					roleArr.add(userRoleTemp.getRole());
+					roleArr.add(new SimpleGrantedAuthority(userRoleTemp.getRole()));
 				//userAuthorities = StringUtils.arrayToCommaDelimitedString(roleArr.toArray());
 			}
 			if (user == null) 
@@ -51,8 +52,8 @@ public class AuthenticationService implements UserDetailsService
 				logger.info("Authentication Fail username : "+username);
 		        throw new UsernameNotFoundException("Invalid username/password.");
 		    }
-		    Collection<? extends GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(roleArr.get(0));
-		    		springUser = new User(user.getLoginId(), user.getPassword(), authorities);
+		    //Collection<? extends GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(roleArr.get(0));
+		    		springUser = new User(user.getLoginId(), user.getPassword(), roleArr);
 			
 		    logger.info("user_id : "+user.getLoginId());
 		    logger.info("Role : "+user.getPassword());			

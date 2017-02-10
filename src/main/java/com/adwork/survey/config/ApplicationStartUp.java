@@ -51,6 +51,11 @@ public class ApplicationStartUp
 			userRole2.setRole("ROLE_ADMIN");
 			session.persist(userRole2);
 			
+			UserRoles userRole3 = new UserRoles();
+			userRole3.setUser(user2);
+			userRole3.setRole("ROLE_USER");
+			session.persist(userRole3);
+			
 			/*UserRoles userRole2 = new UserRoles();
 			userRole2.setUser(user);
 			userRole2.setRole("ROLE_ADMIN");
