@@ -2,11 +2,21 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="Home" template="/WEB-INF/pages/layout.jsp"> 
+	<definition name="Home" template="/WEB-INF/common/adworktemplate.jsp"> 
 		<put-attribute name="PageTitle" value="Home"/> 
-		<put-attribute name="header" value="/WEB-INF/pages/header.jsp"/> 
-		<put-attribute name="body" value="/WEB-INF/pages/body.jsp"/> 
-		<put-attribute name="footer" value="/WEB-INF/pages/footer.jsp"/> 
+		<put-attribute name="headerMenu" value="/WEB-INF/common/headermenu.jsp"/>
+		<put-attribute name="headerBody" value="/WEB-INF/common/headerbody.jsp"/> 
+		<put-attribute name="footer" value="/WEB-INF/common/footer.jsp"/> 
+	</definition>
+	
+	<definition name="Signin" extends="Home"> 
+		<put-attribute name="PageTitle" value="Sign in"/> 
+		<put-attribute name="headerBody" value="/WEB-INF/common/signin.jsp"/> 
+	</definition>
+	
+	<definition name="Registration" extends="Home"> 
+		<put-attribute name="PageTitle" value="Registration"/> 
+		<put-attribute name="headerBody" value="/WEB-INF/common/signup.jsp"/> 
 	</definition>
 	
 	<!-- <definition name="Error" extends="Home" > 

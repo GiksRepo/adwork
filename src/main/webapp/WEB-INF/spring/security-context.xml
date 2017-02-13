@@ -24,7 +24,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
  -->	<!-- Override default login and logout pages -->
 	<security:form-login login-page="/logins"
 		default-target-url="/registartionForm"
-		authentication-failure-url="/hello"
+		authentication-failure-url="/signin?error"
 		username-parameter="username"
 		password-parameter="password" />
 	<security:logout logout-success-url="/logins" logout-url="/logout"/>
