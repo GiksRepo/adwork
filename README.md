@@ -1,2 +1,0 @@
-# adwork
-Adwork project
