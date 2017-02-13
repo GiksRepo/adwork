@@ -56,17 +56,17 @@
 								</div>
 								<div class="top-margin">
 									<label>Country <span class="text-danger">*</span> </label>
-									<form:select path="country" items="${country }"/>
+									<form:select path="country" items="${country }" class="form-control"/>
 									<form:errors path="country"/>
 								</div>
 								<div class="top-margin">
 									<label>State <span class="text-danger">*</span> </label>
-									<form:select path="country" items="${state }"/>
+									<form:select path="country" items="${state }" class="form-control"/>
 									<form:errors path="country"/>
 								</div>
 								<div class="top-margin">
 									<label>City <span class="text-danger">*</span> </label>
-									<form:select path="country" items="${city }"/>
+									<form:select path="country" items="${city }" class="form-control"/>
 									<form:errors path="country"/>
 								</div>
 								
