@@ -41,5 +41,7 @@
 <script src="${jqueryheadroomjs}"></script>
 <spring:url value="resources/assets/js/template.js" var="templatejs"/>
 <script src="${templatejs}"></script>
+<spring:url value="resources/assets/js/adwork.js" var="adworkjs"/>
+<script src="${adworkjs}"></script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.adwork.survey.viewobject;
 
+import java.util.Map;
+
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -26,6 +28,7 @@ public class UserRegistration
 	private String state;
 	@NotEmpty
 	private String country;
+	private Map<String,String> countriesList;
 	public String getFirstName() {
 		return firstName;
 	}
@@ -91,5 +94,11 @@ public class UserRegistration
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	public Map<String, String> getCountriesList() {
+		return countriesList;
+	}
+	public void setCountriesList(Map<String, String> countriesList) {
+		this.countriesList = countriesList;
 	}
 }

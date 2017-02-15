@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.adwork.survey.serviceInterfaces.UserServiceIn;
 import com.adwork.survey.services.UtilityService;
@@ -60,14 +61,15 @@ public class AdworkController
 	public String getRegistartionForm(ModelMap model)
 	{
 		Map<String,String> country = utilityService.getCountryList();
-		Map<String,String> state = utilityService.getStateList();
-		Map<String,String> city = utilityService.getCityList();
+		
+		/*Map<String,String> city = utilityService.getCityList();*/
 		UserRegistration userRegistration = new UserRegistration();
+		userRegistration.setCountriesList(country);
 		userRegistration.setGender("Male");
 		model.addAttribute("userRegistration", userRegistration);
-		model.addAttribute("country",country);
+		/*model.addAttribute("country",country);
 		model.addAttribute("state",state);
-		model.addAttribute("city",city);
+		model.addAttribute("city",city);*/
 		model.addAttribute("curl", "signin");
 		return "Registration";
 	}
@@ -106,5 +108,13 @@ public class AdworkController
 			return "success";
 		}
 		
+	}
+	
+	@RequestMapping(value = "/getStates", method = RequestMethod.POST)
+	public @ResponseBody Map<String,String> getStateList(@RequestParam(value ="countryId") String countryId)
+	{
+		logger.info("country Id :"+countryId);
+		Map<String,String> states = utilityService.getStateList();
+		return states;
 	}
 }

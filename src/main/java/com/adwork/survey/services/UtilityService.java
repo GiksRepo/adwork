@@ -16,7 +16,6 @@ public class UtilityService
 	{
 		logger.info("getCountryList");
 		Map<String,String> country = new LinkedHashMap<String,String>();
-		country.put("", "Select One");
 		country.put("INDIA", "India");
 		country.put("NEPAL", "Nepal");
 		country.put("BHUTAN", "Bhutan");
@@ -28,7 +27,6 @@ public class UtilityService
 	{
 		logger.info("getStateList");
 		Map<String,String> state = new LinkedHashMap<String,String>();
-		state.put("", "Select One");
 		state.put("UTTARAKHAND", "Uttarakhand");
 		state.put("UTTARPRADESH", "Uttar Pradesh");
 		
@@ -39,7 +37,6 @@ public class UtilityService
 	{
 		logger.info("getCityList");
 		Map<String,String> city = new LinkedHashMap<String,String>();
-		city.put("", "Select One");
 		city.put("DEHRADUN", "Dehra Dun");
 		city.put("HARIDWAR", "Haridwar");
 		
